@@ -1,0 +1,183 @@
+<%= javascript_include_tag 'servico' %>
+<fieldset>
+
+  <legend>Novo Estagiário</legend>
+
+  <script type="text/javascript" charset="utf-8">
+//funcao de abas
+		$j(function () {
+			var tabContainers = $j('div.tabs > div');
+			tabContainers.hide().filter(':first').show();
+
+			$j('div.tabs ul.tabNavigation a').click(function () {
+				tabContainers.hide();
+				tabContainers.filter(this.hash).show();
+				$j('div.tabs ul.tabNavigation a').removeClass('selected');
+				$j(this).addClass('selected');
+				return false;
+			}).filter(':first').click();
+		});
+	</script>
+
+
+<div id="abas" class="tabs">
+        <ul class="tabNavigation">
+            <li><a href="#passo1">Dados do Estagiário</a></li>
+            <li><a href="#passo2">Dados sobre o Seguro de Acidentes Pessoais Obrigatórios</a></li>
+
+            <li><a href="#passo4">Atividades que serão Desenvolvidas no Estágio</a></li>
+        </ul>
+
+        <div id="passo1">
+            <h2>Dados do Estagiário</h2>
+
+            <button id="aluno_interno" name="aluno_interno">Aluno interno?</button>
+            <div id="pegardados" style="display: none;">
+            <br>Matricula: <input id="matricula" name="matricula"></input>
+            <button id="save" name="save">Carregar</button>
+            </div>
+            <div id="msg" style="display: none;"></div>
+<% form_for(@estagiario) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :size => "40" %>
+  </p>
+  <p>
+    <%= f.label :matricula ,"Matrícula" %>
+    <%= f.text_field :matricula, :size => "20" %>
+    <%= f.label :periodo ,"Período" %>
+    <%= f.text_field :periodo, :size => "3" %>
+  </p>
+  <p>
+    <%= f.label :data_nascimento %>
+    <%= f.date_select :data_nascimento,:start_year => 1920, :end_year=> Time.now.year, :use_month_numbers => false %>
+  </p>
+  <p>
+    <%= f.label :identidade %>
+    <%= f.text_field :identidade, :size => "15" %>
+    <%= f.label :orgao_expeditor ,"Órgão expeditor" %>
+    <%= f.text_field :orgao_expeditor, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :rua %>
+    <%= f.text_field :rua, :size => "35" %>
+    <%= f.label :bairro %>
+    <%= f.text_field :bairro, :size => "25" %>
+  </p>
+  <p>
+    <%= f.label :cep %>
+    <%= f.text_field :cep, :size => "15" %>
+  </p>
+
+  <p>
+    <label for="cidade[estado_id]">Estado</label>
+    <select id="cidade[estado_id]" name="cidade[estado_id]">
+      <%= options_with_one_selected Estado.find(:all), :id, :nome,
+          @estagiario.cidade ? @estagiario.cidade.estado : Estado.find_by_sigla("RJ") %>
+    </select>
+  </p>
+<p>
+    <label for="estagiario_cidade_id">Cidade</label>
+    <span id="cidade_id_list">
+      <select id="estagiario_cidade_id" name="estagiario[cidade_id]">
+        <%= options_with_one_selected(
+              Estado.find_by_sigla(@estagiario.cidade ? @estagiario.cidade.estado.sigla : "RJ").cidades,
+              :id, :nome, (@estagiario.cidade ? @estagiario.cidade : nil)) %>
+      </select>
+    </span>
+
+    <%= observe_field "cidade[estado_id]",
+          :update => "cidade_id_list",
+          :url => { :action => :obter_cidades },
+          :with => "'estado_id='+value" %>
+</p>
+  <p>
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :celular %>
+    <%= f.text_field :celular, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, :size => "25" %>
+  </p>
+  <p>
+    <%= f.label :instituicao_origem ,"Instituição origem" %>
+    <%= f.text_field :instituicao_origem, :size => "35" %>
+  </p>
+  <p>
+    <%= f.label :disponibilidade_horario ,"Disponibilidade horária" %>
+    <%= f.text_field :disponibilidade_horario, :size => "50" %>
+  </p>
+   <p>
+    <label for="estagiario[supervisor_estagio_id]">Supervisor do Estágio</label>
+    <select id="estagiario[supervisor_estagio_id]" name="estagiario[supervisor_estagio_id]">
+     <%= options_with_one_selected SupervisorEstagio.find(:all), :id, :nome,
+          @estagiario.supervisor_estagio ? @estagiario.supervisor_estagio.nome : :prompt_value => "Selecione" %>
+</select>
+  </p>
+  <p>
+    <label for="estagiario[estagio_id]">Estágio</label>
+    <select id="estagiario[estagio_id]" name="estagiario[estagio_id]">
+     <%= options_with_one_selected Estagio.find(:all), :id, :area_de_concentracao,
+          @estagiario.estagio ? @estagiario.estagio.nome : :prompt_value => "Selecione" %>
+</select>
+  </p>
+<br>
+   <ul class="tabNavigation">
+    <li><a href="#passo2">Próxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo2">
+
+            <h2>Dados sobre o Seguro de Acidentes Pessoais Obrigatórios</h2>
+  <p>
+    <%= f.label :seguradora %>
+    <%= f.text_field :seguradora, :size => "30"%>
+<%= f.label  :numero_da_apolice ,"Número da apólice"%>
+<%= f.text_field :numero_da_apolice, :size => "15"%>
+  </p>
+  <p>
+<%= f.label  :data_da_emissao ,"Data da emissão"%>
+<%= f.date_select :data_da_emissao%>
+<%= f.label  :data_do_vencimento%>
+<%= f.date_select :data_do_vencimento%>
+  </p>
+  <p>
+<%= f.label  :plano_de_saude ,"Plano de saúde"%>
+<%= f.text_field :plano_de_saude, :size => "30"%>
+  </p><br>
+
+<ul class="tabNavigation">
+    <li><a href="#passo4">Próxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo4">
+            <h2>Atividades que serão Desenvolvidas no Estágio</h2>
+            <p>
+
+<%= f.label  :atividades_desenvolidas_no_estagio ,"Atividades desenvolvidas no estágio"%>
+<%= f.text_area :atividades_desenvolidas_no_estagio%>
+
+  </p>
+
+  <p>
+    <%= f.submit 'Criar' %>
+  </p><br>
+        <ul class="tabNavigation">
+    <li><a href="#passo1">Retornar ao início</a></li>
+  </ul>
+
+<% end %>
+</div>
+ </fieldset>
+<%= link_to 'Voltar', estagiarios_path %>
+

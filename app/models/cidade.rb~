@@ -1,0 +1,8 @@
+class Cidade < ActiveRecord::Base
+  belongs_to :estado
+  has_many :estagiarios
+  
+  def default?
+    "Campos dos Goytacazes"
+  end
+end

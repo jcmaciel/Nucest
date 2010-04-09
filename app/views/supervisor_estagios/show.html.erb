@@ -1,0 +1,28 @@
+<p>
+  <b>Nome:</b>
+  <%=h @supervisor_estagio.nome %>
+</p>
+
+<p>
+  <b>Matrícula:</b>
+  <%=h @supervisor_estagio.matricula %>
+</p>
+
+<p>
+  <b>Lotação:</b>
+  <%=h @supervisor_estagio.lotacao %>
+</p>
+
+<p>
+  <b>Função:</b>
+  <%=h @supervisor_estagio.funcao %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%=h @supervisor_estagio.telefone %>
+</p>
+
+
+<%= link_to 'Editar', edit_supervisor_estagio_path(@supervisor_estagio) %> |
+<%= link_to 'Voltar', supervisor_estagios_path %>

@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  instituicao: MyString
+  razao_social: MyString
+  cnpj: MyString
+  vigencia_do_convenio: MyString
+  rua: MyString
+  bairro: MyString
+  cep: MyString
+  telefone: MyString
+  fax: MyString
+  celular: MyString
+  caixa_postal: MyString
+  email: MyString
+  home_page: MyString
+  responsavel_para_contato: MyString
+  telefone_responsavel: MyString
+  celular_responsavel: MyString
+  email_responsavel: MyString
+
+two:
+  instituicao: MyString
+  razao_social: MyString
+  cnpj: MyString
+  vigencia_do_convenio: MyString
+  rua: MyString
+  bairro: MyString
+  cep: MyString
+  telefone: MyString
+  fax: MyString
+  celular: MyString
+  caixa_postal: MyString
+  email: MyString
+  home_page: MyString
+  responsavel_para_contato: MyString
+  telefone_responsavel: MyString
+  celular_responsavel: MyString
+  email_responsavel: MyString

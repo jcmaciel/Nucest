@@ -1,0 +1,38 @@
+<fieldset>
+<legend>Listando Estagios</legend>
+
+<table>
+  <tr>
+    <th>Tipo do estagio</th>
+    <th>Nivel do estagio</th>
+    <th>Area de concentracao</th>
+    <th>Carga horaria semanal</th>
+    <th>Remunerado</th>
+    <th>Duracao</th>
+    <th>Local do estagio</th>
+    <th>Departamento</th>
+    <th>Setor</th>
+  </tr>
+
+<% @estagios.each do |estagio| %>
+  <tr class="linha">
+    <td><%=h estagio.tipo_do_estagio %></td>
+    <td><%=h estagio.nivel_do_estagio %></td>
+    <td><%=h estagio.area_de_concentracao %></td>
+    <td><%=h estagio.carga_horaria_semanal %></td>
+    <td><%=h estagio.remunerado %></td>
+    <td><%=h estagio.duracao %></td>
+    <td><%=h estagio.local_do_estagio %></td>
+    <td><%=h estagio.departamento %></td>
+    <td><%=h estagio.setor %></td>
+    <td><%= link_to 'Mostrar', estagio %></td>
+    <td><%= link_to 'Editar', edit_estagio_path(estagio) %></td>
+    <td><%= link_to 'Deletar', estagio, :confirm => 'Tem certeza que deseja deletar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</fieldset>
+<br />
+
+<%= link_to 'Novo Estagio', new_estagio_path %>
+

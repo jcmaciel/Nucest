@@ -1,0 +1,36 @@
+
+<fieldset>
+
+
+<% if current_user.admin? %>
+  <legend>Listando Usuários</legend>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    </tr>
+
+<% @users.each do |user| %>
+  <tr class="linha">
+    <td><%=h user.username %></td>
+    <td><%=h user.email %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Excluir', user, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+<% else %>
+<legend>Listando Usuário</legend>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    </tr>
+    <tr class="linha">
+ <td><%=h current_user.username %></td>
+ <td><%=h current_user.email %></td>
+ <td><%= link_to 'Editar', edit_user_path(current_user) %></td>
+  <%  end %>
+</table>
+</fieldset>
+

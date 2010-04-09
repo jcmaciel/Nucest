@@ -1,0 +1,201 @@
+<p>
+  <b>Instituicao:</b>
+  <%=h @empresa.instituicao %>
+</p>
+
+<p>
+  <b>Razao social:</b>
+  <%=h @empresa.razao_social %>
+</p>
+
+<p>
+  <b>Cnpj:</b>
+  <%=h @empresa.cnpj %>
+</p>
+
+<p>
+  <b>Vigencia do convenio:</b>
+  <%=h @empresa.inicio_da_vigencia_do_convenio %>
+  <%=h @empresa.fim_da_vigencia_do_convenio %>
+</p>
+
+<p>
+  <b>Rua:</b>
+  <%=h @empresa.rua %>
+</p>
+
+<p>
+  <b>Número:</b>
+  <%=h @empresa.numero %>
+</p>
+
+<p>
+  <b>Complemento:</b>
+  <%=h @empresa.complemento %>
+</p>
+
+<p>
+  <b>Bairro:</b>
+  <%=h @empresa.bairro %>
+</p>
+
+<p>
+  <b>Cep:</b>
+  <%=h @empresa.cep %>
+</p>
+
+  <p>
+    <b>Cidade:</b>
+    <% unless @empresa.cidade.nil? %>
+      <%=h @empresa.cidade.nome %>/<%=h @empresa.cidade.estado.sigla %>
+    <% end %>
+  </p>
+
+<p>
+  <b>Telefone:</b>
+  <%=h @empresa.telefone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @empresa.fax %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%=h @empresa.celular %>
+</p>
+
+<p>
+  <b>Caixa postal:</b>
+  <%=h @empresa.caixa_postal %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @empresa.email %>
+</p>
+
+<p>
+  <b>Home page:</b>
+  <%=h @empresa.home_page %>
+</p>
+
+<p>
+  <b>Responsavel para contato:</b>
+  <%=h @empresa.responsavel_para_contato %>
+</p>
+
+<p>
+  <b>Telefone responsavel:</b>
+  <%=h @empresa.telefone_responsavel %>
+</p>
+
+<p>
+  <b>Celular responsavel:</b>
+  <%=h @empresa.celular_responsavel %>
+</p>
+
+<p>
+  <b>Email responsavel:</b>
+  <%=h @empresa.email_responsavel %>
+</p>
+
+<p>
+  <b>Nome do Representante:</b>
+  <%=h @empresa.nome_do_representante %>
+</p>
+
+<p>
+  <b>Função do Representante:</b>
+  <%=h @empresa.funcao_do_representante %>
+</p>
+
+<p>
+  <b>Identidade do Representante:</b>
+  <%=h @empresa.identidade_do_representante %>
+</p>
+
+<p>
+  <b>Órgão Expeditor:</b>
+  <%=h @empresa.orgao_expeditor %>
+</p>
+
+<p>
+  <b>CPF:</b>
+  <%=h @empresa.cpf %>
+</p>
+
+<p>
+  <b>Telefone do Representante:</b>
+  <%=h @empresa.telefone_do_representante %>
+</p>
+
+<p>
+  <b>Celular do Representante:</b>
+  <%=h @empresa.celular_do_representante %>
+</p>
+
+<p>
+  <b>Email do Representante:</b>
+  <%=h @empresa.email_do_representante %>
+</p>
+
+<p>
+  <b>Áreas que Oferece Estágio:</b>
+  <%=h @empresa.areas_que_oferece_estagio %>
+</p>
+
+<p>
+  <b>Início do Perído que oferece Estágio:</b>
+  <%=h @empresa.inicio_periodo_que_oferece_estagio %>
+</p>
+
+<p>
+  <b>Finaldo Período que oferece Estágio:</b>
+  <%=h @empresa.fim_periodo_que_oferece_estagio %>
+</p>
+
+<p>
+  <b>Oferece o ano inteiro:</b>
+  <%=h @empresa.periodo_do_estagio %>
+</p>
+
+<p>
+  <b>Remuneração:</b>
+  <%=h @empresa.remuneracao %>
+</p>
+
+<p>
+  <b>Valor da Bolsa:</b>
+  <%=h @empresa.valor %>
+</p>
+<p>
+  <b>Outra Forma:</b>
+  <%=h @empresa.outra_forma %>
+</p>
+<p>
+  <b>Tipo:</b>
+  <%=h @empresa.outra_forma_tipo %>
+</p>
+<p>
+  <b>Alimentação:</b>
+  <%=h @empresa.alimentacao %>
+</p>
+
+<p>
+  <b>Trasnporte:</b>
+  <%=h @empresa.transporte %>
+</p>
+
+<p>
+  <b>Seguro de Acidentes Pessoais:</b>
+  <%=h @empresa.seguro_acidentes_pessoais %>
+</p>
+
+
+
+
+<%= link_to 'Editar', edit_empresa_path(@empresa) %> |
+<%= link_to 'Voltar', empresas_path %>
+

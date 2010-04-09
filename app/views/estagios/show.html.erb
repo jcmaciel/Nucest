@@ -1,0 +1,94 @@
+<p>
+  <b>Tipo do estagio:</b>
+  <%=h @estagio.tipo_do_estagio %>
+</p>
+
+<p>
+  <b>Nivel do estagio:</b>
+  <%=h @estagio.nivel_do_estagio %>
+</p>
+<p>
+    <b>Empresa Cedente</b>
+    <% unless @estagio.empresa.nil? %>
+    <%= @estagio.empresa.instituicao %>
+    <% end %>
+</p>
+<p>
+  <b>Inicio do estagio:</b>
+  <%=h @estagio.inicio_do_estagio %>
+</p>
+
+<p>
+  <b>Fim do estagio:</b>
+  <%=h @estagio.fim_do_estagio %>
+</p>
+
+<p>
+  <b>Area de concentracao:</b>
+  <%=h @estagio.area_de_concentracao %>
+</p>
+
+<p>
+  <b>Carga horaria semanal:</b>
+  <%=h @estagio.carga_horaria_semanal %>
+</p>
+
+<p>
+  <b>Carga horaria total:</b>
+  <%=h @estagio.carga_horaria_total %>
+</p>
+
+<p>
+  <b>Remunerado:</b>
+  <%=h @estagio.remunerado %>
+</p>
+
+<p>
+  <b>Valor da bolsa:</b>
+  <%=h @estagio.valor_da_bolsa %>
+</p>
+
+<p>
+  <b>Outras ajudas de custo:</b>
+  <%=h @estagio.outras_ajudas_de_custo %>
+</p>
+
+<p>
+  <b>Obrigatorio:</b>
+  <%=h @estagio.obrigatorio %>
+</p>
+
+<p>
+  <b>Duracao:</b>
+  <%=h @estagio.duracao %>
+</p>
+
+<p>
+  <b>Local do estagio:</b>
+  <%=h @estagio.local_do_estagio %>
+</p>
+
+<p>
+  <b>Departamento:</b>
+  <%=h @estagio.departamento %>
+</p>
+
+<p>
+  <b>Setor:</b>
+  <%=h @estagio.setor %>
+</p>
+
+<p>
+  <b>Agente de integracao:</b>
+  <%=h @estagio.agente_de_integracao %>
+</p>
+
+<p>
+  <b>Qual agente de integracao:</b>
+  <%=h @estagio.qual_agente_de_integracao %>
+</p>
+
+
+<%= link_to 'Editar', edit_estagio_path(@estagio) %> |
+<%= link_to 'Voltar', estagios_path %>
+

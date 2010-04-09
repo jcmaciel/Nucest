@@ -1,0 +1,24 @@
+<h2>Acesso Restrito</h2>
+<center>
+<fieldset id="login">
+
+  <legend>Login</legend>
+
+ <% form_for @user_session do |form| %>
+ <%= form.error_messages %>
+ <ol class="formList">
+   <center>
+     <%= form.label :username, "Usuário" %>
+     <%= form.text_field :username, :size => "20" %>
+  <br>
+     <%= form.label :password, "Senha" %>
+     <%= form.password_field :password, :size => "20"%><br>
+     <%= form.submit "Logar" %>
+     </br>
+     </br>
+     </center>
+
+ </ol>
+ <% end %>
+ </fieldset>
+

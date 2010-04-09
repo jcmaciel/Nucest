@@ -1,0 +1,216 @@
+<fieldset>
+
+  <legend>Editando Empresa</legend>
+  <%= javascript_include_tag 'empresas' %>
+
+
+<div id="abas" class="tabs">
+        <ul class="tabNavigation">
+            <li><a href="#passo1">Dados da Empresa</a></li>
+            <li><a href="#passo2">Dados do Representante</a></li>
+            <li><a href="#passo3">Áreas que oferece oportunidade de Estágio</a></li>
+            <li><a href="#passo4">Ajuda de Custo para Estagiário</a></li>
+        </ul>
+
+        <div id="passo1">
+            <h2>Passo 1</h2>
+<% form_for(@empresa) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :instituicao ,"Instituição" %>
+    <%= f.text_field :instituicao, :size=>'40' %>
+  </p>
+  <p>
+    <%= f.label :razao_social ,"Razão Social" %>
+    <%= f.text_field :razao_social, :size=>'50' %>
+  </p>
+  <p>
+    <%= f.label :cnpj %>
+    <%= f.text_field :cnpj, :size=>'15' %>
+  </p>
+  <p>
+    <%= f.label :inicio_da_vigencia_do_convenio ,"Início da Vigência do convênio" %>
+    <%= f.date_select :inicio_da_vigencia_do_convenio %>
+    <%= f.label :fim_da_vigencia_do_convenio ,"Fim da Vigência do convênio" %>
+    <%= f.date_select :fim_da_vigencia_do_convenio %>
+  </p>
+  <p>
+    <%= f.label :rua %>
+    <%= f.text_field :rua, :size=>'35' %>
+    <%= f.label :numero %>
+    <%= f.text_field :numero, :size=>'5' %>
+    <%= f.label :complemento %>
+    <%= f.text_field :complemento, :size=>'20' %>
+  </p>
+  <p>
+    <%= f.label :bairro %>
+    <%= f.text_field :bairro, :size=>'25' %>
+  </p>
+  <p>
+    <%= f.label :cep %>
+    <%= f.text_field :cep, :size=>'15' %>
+  </p>
+
+   <p>
+    <label for="cidade[estado_id]">Estado</label>
+    <select id="cidade[estado_id]" name="cidade[estado_id]">
+      <%= options_with_one_selected Estado.find(:all), :id, :nome,
+          @empresa.cidade ? @empresa.cidade.estado : Estado.find_by_sigla("RJ") %>
+    </select>
+  </p>
+<p>
+    <label for="empresa_cidade_id">Cidade</label>
+    <span id="cidade_id_list">
+      <select id="empresa_cidade_id" name="empresa[cidade_id]">
+        <%= options_with_one_selected(
+              Estado.find_by_sigla(@empresa.cidade ? @empresa.cidade.estado.sigla : "RJ").cidades,
+              :id, :nome, (@empresa.cidade ? @empresa.cidade : nil)) %>
+      </select>
+    </span>
+
+    <%= observe_field "cidade[estado_id]",
+          :update => "cidade_id_list",
+          :url => { :action => :obter_cidades },
+          :with => "'estado_id='+value" %>
+</p>
+
+  <p>
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone, :size=>'15' %>
+    <%= f.label :fax %>
+    <%= f.text_field :fax, :size=>'15' %>
+    <%= f.label :celular %>
+    <%= f.text_field :celular, :size=>'15' %>
+  </p>
+  <p>
+    <%= f.label :caixa_postal %>
+    <%= f.text_field :caixa_postal, :size=>'15' %>
+    <%= f.label :email %>
+    <%= f.text_field :email, :size=>'25' %>
+    <%= f.label :home_page %>
+    <%= f.text_field :home_page, :size=>'25' %>
+  </p>
+  <br>
+   <ul class="tabNavigation">
+    <li><a href="#passo2">Próxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo2">
+
+            <h2>Passo 2</h2>
+            <p>
+   <%= f.label :nome_do_representante %>
+   <%= f.text_field :nome_do_representante, :size => "40"%>
+            </p>
+      <p>
+   <%= f.label :funcao_do_representante ,"Função do representante"%>
+   <%= f.text_field :funcao_do_representante, :size => "40"%>
+      </p>
+      <p>
+   <%= f.label :identidade_do_representante %>
+   <%= f.text_field :identidade_do_representante, :size => "15" %>
+   <%= f.label :orgao_expeditor ,"Órgão expeditor" %>
+   <%= f.text_field :orgao_expeditor, :size => "7" %>
+   <%= f.label :cpf%>
+   <%= f.text_field :cpf, :size => "10" %>
+      </p>
+      <p>
+<%= f.label :telefone_do_representante%>
+<%= f.text_field :telefone_do_representante, :size => "15"%>
+<%= f.label :celular_do_representante%>
+<%= f.text_field :celular_do_representante, :size => "15"%>
+<%= f.label :email_do_representante%>
+<%= f.text_field :email_do_representante, :size => "35"%>
+</p><br>
+<p>
+    <%= f.label :responsavel_para_contato ,"Contato" %>
+    <%= f.text_field :responsavel_para_contato, :size=>'40' %>
+  </p>
+  <p>
+    <%= f.label :telefone_responsavel ,"Telofone de Contato" %>
+    <%= f.text_field :telefone_responsavel, :size=>'15' %>
+    <%= f.label :celular_responsavel ,"Celular de Contato" %>
+    <%= f.text_field :celular_responsavel, :size=>'15' %>
+    <%= f.label :email_responsavel ,"Email de Contato" %>
+    <%= f.text_field :email_responsavel, :size=>'25' %>
+  </p>
+<br>
+<ul class="tabNavigation">
+    <li><a href="#passo3">Próxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo3">
+            <h2>Passo 3</h2>
+            <p>
+<p>
+<%= f.label :areas_que_oferece_estagio ,"Áreas que oferece estágio"%>
+<%= f.text_area :areas_que_oferece_estagio, :size => "70"%>
+</p>
+<p>
+<%= f.label :periodo_do_estagio%>
+<%= f.radio_button :periodo_do_estagio, "Durante todo o ano"%>Durante o ano inteiro
+<%= f.radio_button :periodo_do_estagio, "Sazonal" %>Sazonal
+</p>
+
+<div id="periodo_sazonal" style="display: none;">
+<p>
+<%= f.label :inicio_periodo_que_oferece_estagio, "Do mês"%>
+<%= f.date_select :inicio_periodo_que_oferece_estagio, :order => [:month] %>
+<%= f.label :fim_periodo_que_oferece_estagio, "ao mês"%>
+<%= f.date_select :fim_periodo_que_oferece_estagio, :order => [:month] %>
+</p>
+</div>
+<br>
+<ul class="tabNavigation">
+    <li><a href="#passo4">Próxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo4">
+            <h2>Passo 4</h2>
+            <p>
+              <p>
+<%= f.label :remuneracao ,"Remuneração"%>
+<%= f.radio_button :remuneracao, "Sim"%>Sim
+<%= f.radio_button :remuneracao, "Não"%>Não&nbsp;&nbsp;
+<%= f.label :valor%>
+<%= f.text_field :valor ,:disabled => "true", :size => "10"%>
+              </p>
+<p>
+<%= f.label :outra_forma%>
+<%= f.radio_button :outra_forma, "Sim"%>Sim
+<%= f.radio_button :outra_forma, "Não"%>Não&nbsp;&nbsp;
+
+<%= f.label :outra_forma_tipo, "Tipo" %>
+<%= f.text_field :outra_forma_tipo, :disabled => "true", :size => "15" %>
+</p>
+              <p>
+<%= f.label :alimentacao ,"Alimentação"%>
+<%= f.radio_button :alimentacao, "Sim"%>Sim
+<%= f.radio_button :alimentacao, "Não"%>Não&nbsp;&nbsp;
+              </p>
+
+              <p>
+<%= f.label :transporte%>
+<%= f.radio_button :transporte, "Sim"%>Sim
+<%= f.radio_button :transporte, "Não"%>Não&nbsp;&nbsp;
+              </p>
+              <p>
+<%= f.label :seguro_acidentes_pessoais%>
+<%= f.radio_button :seguro_acidentes_pessoais, "Sim"%>Sim
+<%= f.radio_button :seguro_acidentes_pessoais, "Não"%>Não&nbsp;&nbsp;
+              </p><br>
+
+ <p>
+    <%= f.submit 'Atualizar' %>
+  </p><br>
+  <ul class="tabNavigation">
+    <li><a href="#passo1">Retornar ao início</a></li>
+  </ul>
+<% end %>
+        </div>
+</fieldset>
+
+<%= link_to 'Mostrar', @empresa %> |
+<%= link_to 'Voltar', empresas_path %>
+

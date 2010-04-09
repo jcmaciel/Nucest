@@ -1,0 +1,41 @@
+<fieldset>
+
+  <legend>Listando Empresas</legend>
+
+<table>
+  <tr>
+    <th>Instituicao</th>
+
+    <th>Cnpj</th>
+    <th>Vigencia do convenio</th>
+
+    <th>Telefone</th>
+
+    <th>Home page</th>
+    <th>Responsavel para contato</th>
+    <th>Telefone responsavel</th>
+
+  </tr>
+
+<% @empresas.each do |empresa| %>
+  <tr class="linha">
+    <td><%=h empresa.instituicao %></td>
+
+    <td><%=h empresa.cnpj %></td>
+    <td><%=h empresa.inicio_da_vigencia_do_convenio %></td>
+    <td><%=h empresa.fim_da_vigencia_do_convenio %></td>]
+
+    <td><%=h empresa.telefone %></td>
+
+    <td><%=h empresa.home_page %></td>
+    <td><%=h empresa.responsavel_para_contato %></td>
+    <td><%=h empresa.telefone_responsavel %></td>
+
+    <td><%= link_to 'Mostrar', empresa %></td>
+    <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
+    <td><%= link_to 'Excluir', empresa, :confirm => 'Tem certeza que deseja deletar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</fieldset>
+

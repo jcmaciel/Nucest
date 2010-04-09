@@ -1,0 +1,37 @@
+<fieldset>
+
+  <legend>Listando Bolsistas</legend>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Cidade</th>
+    <th>Telefone</th>
+    <th>Rg</th>
+    <th>Orgao</th>
+    <th>Formacao academica</th>
+    <th>Instituicao</th>
+    <th>Pos graduacao</th>
+    <th>Tipo bolsa</th>
+  </tr>
+
+<% @bolsistas.each do |bolsista| %>
+  <tr>
+    <td><%=h bolsista.nome %></td>
+    <td><%=h bolsista.email %></td>
+    <td><%=h bolsista.cidade %></td>
+    <td><%=h bolsista.telefone %></td>
+    <td><%=h bolsista.rg %></td>
+    <td><%=h bolsista.orgao %></td>
+    <td><%=h bolsista.formacao_academica %></td>
+    <td><%=h bolsista.instituicao %></td>
+    <td><%=h bolsista.pos_graduacao %></td>
+    <td><%=h bolsista.tipo_bolsa %></td>
+    <td><%= link_to 'Mostrar', bolsista %></td>
+    <td><%= link_to 'Editar', edit_bolsista_path(bolsista) %></td>
+    <td><%= link_to 'Deletar', bolsista, :confirm => 'Tem Certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</fieldset>

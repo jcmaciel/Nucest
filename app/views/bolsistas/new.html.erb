@@ -1,0 +1,178 @@
+<fieldset>
+
+  <legend>Novo Bolsista</legend>
+<script type="text/javascript" charset="utf-8">
+		var $j = jQuery.noConflict();
+		$j(function () {
+			var tabContainers = $j('div.tabs > div');
+			tabContainers.hide().filter(':first').show();
+
+			$j('div.tabs ul.tabNavigation a').click(function () {
+				tabContainers.hide();
+				tabContainers.filter(this.hash).show();
+				$j('div.tabs ul.tabNavigation a').removeClass('selected');
+				$j(this).addClass('selected');
+				return false;
+			}).filter(':first').click();
+		});
+	</script>
+
+
+<div id="abas" class="tabs">
+       <ul class="tabNavigation">
+            <li><a href="#passo1">Dados Pessoais</a></li>
+            <li><a href="#passo2">Documentação</a></li>
+            <li><a href="#passo3">Dados Acadêmicos</a></li>
+        </ul>
+
+        <div id="passo1">
+            <h2>Dados Pessoais</h2>
+            <% form_for(@bolsista) do |f| %>
+  <%= f.error_messages %>
+             <p>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :size => "40" %>
+             </p>
+    <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+             </p>
+  <p>
+    <%= f.label :rua %>
+    <%= f.text_field :rua, :size =>"35" %>
+    <%= f.label :numero, "Número" %>
+    <%= f.text_field :numero, :size => "5" %>
+    <%= f.label :bairro %>
+    <%= f.text_field :bairro, :size => "25" %>
+<p>
+    <label for="cidade[estado_id]">Estado</label>
+    <select id="cidade[estado_id]" name="cidade[estado_id]">
+      <%= options_with_one_selected Estado.find(:all), :id, :nome,
+          @bolsista.cidade ? @bolsista.cidade.estado : Estado.find_by_sigla("RJ") %>
+    </select>
+  </p>
+<p>
+    <label for="@bolsista_cidade_id">Cidade</label>
+    <span id="cidade_id_list">
+      <select id="@bolsista_cidade_id" name="@bolsista[cidade_id]">
+        <%= options_with_one_selected(
+              Estado.find_by_sigla(@bolsista.cidade ? @bolsista.cidade.estado.sigla : "RJ").cidades,
+              :id, :nome, (@bolsista.cidade ? @bolsista.cidade : nil)) %>
+      </select>
+    </span>
+
+    <%= observe_field "cidade[estado_id]",
+          :update => "cidade_id_list",
+          :url => { :action => :obter_cidades },
+          :with => "'estado_id='+value" %>
+</p>
+  <p>
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone, :size => "15" %>
+      <%= f.label :celular %>
+    <%= f.text_field :celular, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :data_nascimento %>
+    <%= f.date_select :data_nascimento %>
+  </p>
+  <p>
+    <%= f.label :sexo %>
+    <%= f.text_field :sexo, :size => "10" %>
+  </p>
+  <p>
+    <%= f.label :nacionalidade %>
+    <%= f.text_field :nacionalidade, :size => "15" %>
+    <%= f.label :naturalidade %>
+    <%= f.text_field :naturalidade, :size => "15" %>
+  </p>
+  <ul class="tabNavigation">
+    <li><a href="#passo2">Proxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo2">
+
+            <h2>Documentação</h2>
+
+  <p>
+    <%= f.label :nome_pai %>
+    <%= f.text_field :nome_pai, :size => "40" %>
+  </p>
+  <p>
+    <%= f.label :nome_mae ,"Nome mãe" %>
+    <%= f.text_field :nome_mae, :size => "40" %>
+  </p>
+  <p>
+    <%= f.label :estado_civil %>
+    <%= f.text_field :estado_civil, :size => "10" %>
+  </p>
+  <p>
+    <%= f.label :nome_conjuge ,"Nome cônjuge" %>
+    <%= f.text_field :nome_conjuge, :size => "40" %>
+  </p>
+  <p>
+    <%= f.label :rg %>
+    <%= f.text_field :rg, :size => "15" %>
+    <%= f.label :orgao ,"Órgão" %>
+    <%= f.text_field :orgao, :size => "10" %>
+      <%= f.label :data_expedicao ,"Data de Expedição" %>
+    <%= f.date_select :data_expedicao %>
+  </p>
+  <p>
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :certiicado_reservista ,"Certificado de reservista" %>
+    <%= f.text_field :certiicado_reservista %>
+    <%= f.label :categoria %>
+    <%= f.text_field :categoria %>
+  </p>
+  <p>
+    <%= f.label :titulo_eleitor, "Título de Eleitor" %>
+    <%= f.text_field :titulo_eleitor, :size => "20" %>
+    <%= f.label :zona %>
+    <%= f.text_field :zona, :size => "10" %>
+      <%= f.label :secao ,"Seção" %>
+    <%= f.text_field :secao, :size => "10" %>
+  </p>
+<ul class="tabNavigation">
+    <li><a href="#passo3">Proxima Página</a></li>
+  </ul>
+        </div>
+        <div id="passo3">
+            <h2>Dados Acadêmicos</h2>
+            <p>
+    <p>
+    <%= f.label :grau_instrucao ,"Grau Instrução" %>
+    <%= f.text_field :grau_instrucao, :size => "15" %>
+      <%= f.label :formacao_academica ,"Formação Acadêmica" %>
+    <%= f.text_field :formacao_academica, :size => "15" %>
+  </p>
+  <p>
+    <%= f.label :instituicao ,"Instituição" %>
+    <%= f.text_field :instituicao, :size => "35" %>
+  </p>
+  <p>
+    <%= f.label :pos_graduacao ,"Pós Graduação" %>
+    <%= f.text_field :pos_graduacao, :size => "25" %>
+  </p>
+  <p>
+    <%= f.label :tipo_bolsa %>
+    <%= f.text_field :tipo_bolsa, :size => "15" %>
+  </p>
+  <p>
+    <%= f.submit 'Cadastrar' %>
+  </p>
+
+      <ul class="tabNavigation">
+    <li><a href="#passo1">Retornar ao início</a></li>
+  </ul>
+
+  </p>
+        </div>
+    </div>
+    </fieldset>
+
+<%  end %>
+

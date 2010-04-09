@@ -1,0 +1,71 @@
+class CreateEmpresas < ActiveRecord::Migration
+  def self.up
+    create_table :empresas do |t|
+      t.string :instituicao
+      t.string :razao_social
+      t.string :cnpj
+      t.date :inicio_da_vigencia_do_convenio
+      t.date :fim_da_vigencia_do_convenio
+      t.string :rua
+      t.string :numero
+      t.string :complemento
+      t.string :bairro
+      t.string :cep
+      t.string :telefone
+      t.string :fax
+      t.string :celular
+      t.string :caixa_postal
+      t.string :email
+      t.string :home_page
+      t.string :responsavel_para_contato
+      t.string :telefone_responsavel
+      t.string :celular_responsavel
+      t.string :email_responsavel
+      t.references :cidade
+
+
+      #mudei a patrir daqui
+      t.string :nome_do_representante
+      t.string :funcao_do_representante
+      t.string :identidade_do_representante
+      t.string :orgao_expeditor
+      t.string :cpf
+      t.string :telefone_do_representante
+      t.string :celular_do_representante
+      t.string :email_do_representante
+
+      t.string :areas_que_oferece_estagio
+      t.date :inicio_periodo_que_oferece_estagio
+      t.date :fim_periodo_que_oferece_estagio
+      t.string :oferece_ano_inteiro
+
+      t.string :remuneracao
+      t.string :valor
+      t.string :outra_forma
+      t.string :outra_forma_tipo
+      t.string :alimentacao
+
+      t.string :transporte
+      t.string :seguro_acidentes_pessoais
+
+
+
+
+
+
+
+      t.timestamps
+    end
+      execute <<-SQL
+      ALTER TABLE empresas
+        ADD CONSTRAINT fk_cidade
+        FOREIGN KEY (cidade_id)
+        REFERENCES cidades(id)
+    SQL
+  end
+
+  def self.down
+    drop_table :empresas
+  end
+end
+

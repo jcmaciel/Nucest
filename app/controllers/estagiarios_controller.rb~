@@ -1,0 +1,85 @@
+class EstagiariosController < ApplicationController
+  # GET /estagiarios
+  # GET /estagiarios.xml
+  def index
+    @estagiarios = Estagiario.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @estagiarios }
+    end
+  end
+
+  # GET /estagiarios/1
+  # GET /estagiarios/1.xml
+  def show
+    @estagiario = Estagiario.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @estagiario }
+    end
+  end
+
+  # GET /estagiarios/new
+  # GET /estagiarios/new.xml
+  def new
+    @estagiario = Estagiario.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @estagiario }
+    end
+  end
+
+  # GET /estagiarios/1/edit
+  def edit
+    @estagiario = Estagiario.find(params[:id])
+  end
+
+  # POST /estagiarios
+  # POST /estagiarios.xml
+  def create
+    @estagiario = Estagiario.new(params[:estagiario])
+
+    respond_to do |format|
+      if @estagiario.save
+        flash[:notice] = 'Estagiario was successfully created.'
+        format.html { redirect_to(@estagiario) }
+        format.xml  { render :xml => @estagiario, :status => :created, :location => @estagiario }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @estagiario.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /estagiarios/1
+  # PUT /estagiarios/1.xml
+  def update
+    @estagiario = Estagiario.find(params[:id])
+
+    respond_to do |format|
+      if @estagiario.update_attributes(params[:estagiario])
+        flash[:notice] = 'Estagiario was successfully updated.'
+        format.html { redirect_to(@estagiario) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @estagiario.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /estagiarios/1
+  # DELETE /estagiarios/1.xml
+  def destroy
+    @estagiario = Estagiario.find(params[:id])
+    @estagiario.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(estagiarios_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

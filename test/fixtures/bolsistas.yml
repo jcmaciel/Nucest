@@ -1,0 +1,67 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  email: MyString
+  rua: MyString
+  numero: 1
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  telefone: MyString
+  celular: MyString
+  data_nascimento: 2009-06-15
+  sexo: MyString
+  nacionalidade: MyString
+  naturalidade: MyString
+  nome_pai: MyString
+  nome_mae: MyString
+  estado_civil: MyString
+  nome_conjuge: MyString
+  rg: MyString
+  orgao: MyString
+  data_expedicao: 2009-06-15
+  cpf: MyString
+  certiicado_reservista: MyString
+  categoria: MyString
+  titulo_eleitor: MyString
+  zona: MyString
+  secao: MyString
+  grau_instrucao: MyString
+  formacao_academica: MyString
+  instituicao: MyString
+  pos_graduacao: MyString
+  tipo_bolsa: MyString
+
+two:
+  nome: MyString
+  email: MyString
+  rua: MyString
+  numero: 1
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  telefone: MyString
+  celular: MyString
+  data_nascimento: 2009-06-15
+  sexo: MyString
+  nacionalidade: MyString
+  naturalidade: MyString
+  nome_pai: MyString
+  nome_mae: MyString
+  estado_civil: MyString
+  nome_conjuge: MyString
+  rg: MyString
+  orgao: MyString
+  data_expedicao: 2009-06-15
+  cpf: MyString
+  certiicado_reservista: MyString
+  categoria: MyString
+  titulo_eleitor: MyString
+  zona: MyString
+  secao: MyString
+  grau_instrucao: MyString
+  formacao_academica: MyString
+  instituicao: MyString
+  pos_graduacao: MyString
+  tipo_bolsa: MyString

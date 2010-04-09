@@ -1,0 +1,14 @@
+require 'brazilian-rails'
+#include AuthenticatedSystem
+class Empresa < ActiveRecord::Base
+  has_many :estagios
+  usar_como_cpf :cpf
+  belongs_to :cidade
+  validates_presence_of :instituicao
+  usar_como_cnpj :cnpj
+  validates_numericality_of :telefone_do_representante, :celular_do_representante, :telefone, :celular, :fax, :telefone_responsavel, :celular_responsavel, :allow_blank=> true
+  validates_format_of :email, :email_responsavel, :email_do_representante, :with => /(.+)@(.+)\.(.{3})/,  :message => ": erro no formato, por favor revise.", :allow_blank => true
+  validates_format_of :cep, :with => %r{\d{5}(-\d{3})?} , :allow_blank => true
+
+end
+

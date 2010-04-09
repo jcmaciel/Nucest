@@ -1,0 +1,7 @@
+<select id="empresa_cidade_id" name="empresa[cidade_id]">
+  <% for cidade in @cidades do -%>
+    <option value="<%= cidade.id %>">
+      <%= cidade.nome %>
+    </option>
+  <% end %>
+</select>

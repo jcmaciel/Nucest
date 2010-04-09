@@ -1,0 +1,37 @@
+#tabnav {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#tabs {
+    height: 20px;
+    position: relative;
+}
+
+#content {
+    position: relative;
+    padding: 20px;
+    border: 2px solid #78bee2;
+}
+
+#content div p {
+    font-family: Arial, Verdana;
+    font-size: 12px;
+}
+
+#tabs a, #tabs a:visited {
+    background: url("tab.jpg") top left no-repeat;
+    font-family: Arial, Verdana;
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    width: 70px;
+    height: 17px;
+    _height: 20px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    padding: 3px 0 0 0;
+    float: left;
+}

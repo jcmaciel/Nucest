@@ -1,0 +1,78 @@
+<p>
+  <b>Nome:</b>
+  <%=h @estagiario.nome %>
+</p>
+
+<p>
+  <b>Matricula:</b>
+  <%=h @estagiario.matricula %>
+</p>
+
+<p>
+  <b>Data nascimento:</b>
+  <%=h @estagiario.data_nascimento %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%=h @estagiario.periodo %>
+</p>
+
+<p>
+  <b>Identidade:</b>
+  <%=h @estagiario.identidade %>
+</p>
+
+<p>
+  <b>Orgao expeditor:</b>
+  <%=h @estagiario.orgao_expeditor %>
+</p>
+
+<p>
+  <b>Cpf:</b>
+  <%=h @estagiario.cpf %>
+</p>
+
+<p>
+  <b>Rua:</b>
+  <%=h @estagiario.rua %>
+</p>
+
+<p>
+  <b>Bairro:</b>
+  <%=h @estagiario.bairro %>
+</p>
+
+<p>
+  <b>Cep:</b>
+  <%=h @estagiario.cep %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%=h @estagiario.telefone %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%=h @estagiario.celular %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @estagiario.email %>
+</p>
+
+<p>
+  <b>Instituicao origem:</b>
+  <%=h @estagiario.instituicao_origem %>
+</p>
+
+<p>
+  <b>Disponibilidade horario:</b>
+  <%=h @estagiario.disponibilidade_horario %>
+</p>
+
+
+<%= link_to 'Edit', edit_estagiario_path(@estagiario) %> |
+<%= link_to 'Back', estagiarios_path %>

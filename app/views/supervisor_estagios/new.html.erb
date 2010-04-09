@@ -1,0 +1,30 @@
+<fieldset>
+  <legend>Novo Supervisor</legend>
+
+
+<% form_for(@supervisor_estagio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome ,"Nome"%>
+    <%= f.text_field :nome, :size => "40" %>
+  </p>
+  <p>
+    <%= f.label :matricula ,"Matrícula" %>
+    <%= f.text_field :matricula, :size => "15" %>
+    <%= f.label :lotacao,"Lotação" %>
+    <%= f.text_field :lotacao, :size => "20" %>
+  </p>
+  <p>
+    <%= f.label :funcao ,"Função"%>
+    <%= f.text_field :funcao, :size => "20" %>
+    <%= f.label :telefone ,"Telefone"%>
+    <%= f.text_field :telefone, :size => "15" %>
+  </p>
+  <p>
+    <%= f.submit 'Cadastrar' %>
+  </p>
+<% end %>
+</fieldset>
+<%= link_to 'Voltar', supervisor_estagios_path %>
+

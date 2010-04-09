@@ -1,0 +1,26 @@
+<fieldset>
+
+  <legend>Editar Usuário</legend>
+
+ <% form_for @user do |form| %>
+ <%= form.error_messages %>
+ <ol class="formList">
+
+     <%= form.label :username, "Usuário" %>
+     <%= form.text_field :username %><br>
+     <%= form.label :email, "Email" %>
+     <%= form.text_field :email %><br>
+     <%= form.label :password, "Senha" %>
+     <%= form.password_field :password %><br>
+     <%= form.label :password_confirmation, "Confimar senha" %>
+     <%= form.password_field :password_confirmation %><br>
+     <label for="user[tipo_de_usuario]">Tipo de Usuário</label>
+     <select id="user[tipo_de_usuario" name="user[tipo_de_usuario">
+     <%= options_with_one_selected Role.find(:all), :id, :name,
+          @user.role ? @user.role.tipo_de_usuario : :prompt_value => "Selecione" %>
+     </select><br>
+     <%= form.submit "Registrar" %><br>
+    </ol>
+ <% end %>
+ </fieldset>
+

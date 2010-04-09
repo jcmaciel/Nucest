@@ -1,0 +1,132 @@
+<fieldset>
+
+  <legend>Dados do estagiário</legend>
+
+  <p>
+    <b>Nome:</b>
+    <%=h @estagiario.nome %>
+  </p>
+
+  <p>
+    <b>Matricula:</b>
+    <%=h @estagiario.matricula %>
+  </p>
+
+  <p>
+    <b>Data nascimento:</b>
+    <%=h @estagiario.data_nascimento %>
+  </p>
+
+  <p>
+    <b>Periodo:</b>
+    <%=h @estagiario.periodo %>
+  </p>
+
+  <p>
+    <b>Identidade:</b>
+    <%=h @estagiario.identidade %>
+  </p>
+
+  <p>
+    <b>Orgao expeditor:</b>
+    <%=h @estagiario.orgao_expeditor %>
+  </p>
+
+  <p>
+    <b>Cpf:</b>
+    <%=h @estagiario.cpf %>
+  </p>
+
+  <p>
+    <b>Rua:</b>
+    <%=h @estagiario.rua %>
+  </p>
+
+  <p>
+    <b>Bairro:</b>
+    <%=h @estagiario.bairro %>
+  </p>
+
+  <p>
+    <b>Cep:</b>
+    <%=h @estagiario.cep %>
+  </p>
+
+  <p>
+    <b>Cidade:</b>
+    <% unless @estagiario.cidade.nil? %>
+      <%=h @estagiario.cidade.nome %>/<%=h @estagiario.cidade.estado.sigla %>
+    <% end %>
+  </p>
+
+  <p>
+     <b>Supervisor do Estagio:</b>
+     <% unless @estagiario.supervisor_estagio.nil? %>
+     <%= @estagiario.supervisor_estagio.nome %>
+     <% end %>
+  </p>
+  <p>
+      <b>Estágio:</b>
+      <% unless @estagiario.estagio.nil? %>
+      <%= @estagiario.estagio.area_de_concentracao %>
+      <% end %>
+  </p>
+  <p>
+    <b>Telefone:</b>
+    <%=h @estagiario.telefone %>
+  </p>
+
+  <p>
+    <b>Celular:</b>
+    <%=h @estagiario.celular %>
+  </p>
+
+  <p>
+    <b>Email:</b>
+    <%=h @estagiario.email %>
+  </p>
+
+  <p>
+    <b>Instituicao origem:</b>
+    <%=h @estagiario.instituicao_origem %>
+  </p>
+
+  <p>
+    <b>Disponibilidade horario:</b>
+    <%=h @estagiario.disponibilidade_horario %>
+  </p>
+
+  <p>
+    <b>Seguradora:</b>
+    <%=h @estagiario.seguradora %>
+  </p>
+
+  <p>
+    <b>Número da Apólice:</b>
+    <%=h @estagiario.numero_da_apolice %>
+  </p>
+
+  <p>
+    <b>Data de Emissão:</b>
+    <%=h @estagiario.data_da_emissao %>
+  </p>
+
+  <p>
+    <b>Data de Vencimento:</b>
+    <%=h @estagiario.data_do_vencimento %>
+  </p>
+  <p>
+    <b>Plano de Saúde:</b>
+    <%=h @estagiario.plano_de_saude %>
+  </p>
+
+<p>
+  <b>Atividades Desenvolvidas no Estágio:</b>
+  <%=h @estagiario.atividades_desenvolidas_no_estagio%>
+</p>
+
+</fieldset>
+
+<%= link_to 'Editar', edit_estagiario_path(@estagiario) %> |
+<%= link_to 'Voltar', estagiarios_path %>
+

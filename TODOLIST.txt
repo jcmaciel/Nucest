@@ -1,0 +1,14 @@
+//Lista de pendências do Sistema de Estágio
+
+#TODO: Verificar os relacionamentos entre estágio, estágiario e empresa, Como relacionar os 3.
+#TODO: Colocar o sistema de autofill em javascript para funcionar junto ao sistema master/
+#TODO: Colocar o sistema de paginação em ajax para funcionar junto ao sistema master./
+#TODO: Resolver a parte da emissão de relatorios
+#TODO: cores, footer, header customizado com logotipo do nucleo e contato
+#TODO: Colocar informações necessárias na HOME, apos o login, tais como qtdade de usuários online, estagios, estagiarios, empresas.
+#TODO: traduzir msgs de notice do registro de usuarios ./ FEITO - Revisar
+#TODO: criar vinculo nas regras ao criar usuario / geral /admin
+#todo: desativar campos qnd nao existe remuneração
+#TODO: criar relacionamentos entre tabela de estagiarios e de supervisor de estágios ./ FEITO
+#TODO: criar relacionamentos EMPRESA-ESTAGIO; ESTAGIO_ESTAGIARIO ./ FEITO
+

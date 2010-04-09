@@ -1,0 +1,31 @@
+<fieldset>
+  <legend>Listando Supervisor</legend>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Matricula</th>
+    <th>Lotacao</th>
+    <th>Funcao</th>
+    <th>Telefone</th>
+  </tr>
+
+<% @supervisor_estagios.each do |supervisor_estagio| %>
+  <tr>
+    <td><%=h supervisor_estagio.nome %></td>
+    <td><%=h supervisor_estagio.matricula %></td>
+    <td><%=h supervisor_estagio.lotacao %></td>
+    <td><%=h supervisor_estagio.funcao %></td>
+    <td><%=h supervisor_estagio.telefone %></td>
+    <td><%= link_to 'Mostrar', supervisor_estagio %></td>
+    <td><%= link_to 'Editar', edit_supervisor_estagio_path(supervisor_estagio) %></td>
+    <td><%= link_to 'Deletar', supervisor_estagio, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</fieldset>
+
+<br />
+
+<%= link_to 'Novo Supervisor', new_supervisor_estagio_path %>
+

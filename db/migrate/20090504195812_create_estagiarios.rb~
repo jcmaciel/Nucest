@@ -1,0 +1,27 @@
+class CreateEstagiarios < ActiveRecord::Migration
+  def self.up
+    create_table :estagiarios do |t|
+      t.string :nome, :null => false
+      t.string :matricula
+      t.string :data_nascimento
+      t.integer :periodo
+      t.string :identidade
+      t.string :orgao_expeditor
+      t.string :cpf
+      t.string :rua
+      t.string :bairro
+      t.string :cep
+      t.string :telefone
+      t.string :celular
+      t.string :email
+      t.string :instituicao_origem
+      t.string :disponibilidade_horario
+      t.references :cidade
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :estagiarios
+  end
+end

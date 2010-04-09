@@ -1,0 +1,48 @@
+<h1>Listando Estagiários</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Matricula</th>
+    <th>Data nascimento</th>
+    <th>Periodo</th>
+    <th>Identidade</th>
+    <th>Orgao expeditor</th>
+    <th>Cpf</th>
+    <th>Rua</th>
+    <th>Bairro</th>
+    <th>Cep</th>
+    <th>Telefone</th>
+    <th>Celular</th>
+    <th>Email</th>
+    <th>Instituicao origem</th>
+    <th>Disponibilidade horario</th>
+  </tr>
+
+<% @estagiarios.each do |estagiario| %>
+  <tr>
+    <td><%=h estagiario.nome %></td>
+    <td><%=h estagiario.matricula %></td>
+    <td><%=h estagiario.data_nascimento %></td>
+    <td><%=h estagiario.periodo %></td>
+    <td><%=h estagiario.identidade %></td>
+    <td><%=h estagiario.orgao_expeditor %></td>
+    <td><%=h estagiario.cpf %></td>
+    <td><%=h estagiario.rua %></td>
+    <td><%=h estagiario.bairro %></td>
+    <td><%=h estagiario.cep %></td>
+    <td><%=h estagiario.telefone %></td>
+    <td><%=h estagiario.celular %></td>
+    <td><%=h estagiario.email %></td>
+    <td><%=h estagiario.instituicao_origem %></td>
+    <td><%=h estagiario.disponibilidade_horario %></td>
+    <td><%= link_to 'Show', estagiario %></td>
+    <td><%= link_to 'Edit', edit_estagiario_path(estagiario) %></td>
+    <td><%= link_to 'Destroy', estagiario, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New estagiario', new_estagiario_path %>

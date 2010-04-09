@@ -1,0 +1,88 @@
+<fieldset>
+  <legend>Editando Estágio</legend>
+
+<% form_for(@estagio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tipo_do_estagio , "Tipo do Estágio"%>
+    <%= f.radio_button :tipo_do_estagio, "Interno"%>Interno
+    <%= f.radio_button :tipo_do_estagio, "Externo"%>Externo
+  </p>
+  <p>
+    <%= f.label :nivel_do_estagio , "Nível do Estágio"%>
+    <%= f.radio_button :nivel_do_estagio, "Ensino Médio"%>Ensino Médio
+    <%= f.radio_button :nivel_do_estagio, "Ensino Superior"%>Ensino Superior
+    <%= f.radio_button :nivel_do_estagio, "Pós-Graduação"%>Pós-Graduação
+  </p>
+  <p>
+    <label for="estagio[empresa_id]">Empresa Cedente</label>
+    <select id="estagio[empresa_id]" name="estagio[empresa_id]">
+     <%= options_with_one_selected Empresa.find(:all), :id, :instituicao,
+          @estagio.empresa ? @estagio.empresa.nome : :prompt_value => "Selecione" %>
+</select>
+  </p>
+  <p>
+    <%= f.label :inicio_do_estagio , "Início do Estágio"%>
+    <%= f.date_select :inicio_do_estagio %>
+    <%= f.label :fim_do_estagio , "Fim do Estágio"%>
+    <%= f.date_select :fim_do_estagio %>
+  </p>
+  <p>
+    <%= f.label :area_de_concentracao , "Área de Concentração"%>
+    <%= f.text_field :area_de_concentracao , :size => "20"%>
+  </p>
+  <p>
+    <%= f.label :carga_horaria_semanal , "Carga Horária Semanal"%>
+    <%= f.text_field :carga_horaria_semanal , :size => "10"%>
+  </p>
+  <p>
+    <%= f.label :carga_horaria_total , "Carga Horária Total"%>
+    <%= f.text_field :carga_horaria_total , :size => "10"%>
+  </p>
+  <p>
+    <%= f.label :remunerado %>
+    <%= f.radio_button :remunerado, "Sim"%>Sim
+    <%= f.radio_button :remunerado, "Não"%>Não&nbsp;&nbsp;
+    <%= f.label :valor_da_bolsa , "Valor da Bolsa"%>
+    <%= f.text_field :valor_da_bolsa , :size => "10"%>
+  </p>
+  <p>
+    <%= f.label :outras_ajudas_de_custo %><br />
+    <%= f.text_field :outras_ajudas_de_custo %>
+  </p>
+  <p>
+    <%= f.label  :obrigatorio ,"Obrigatório"%>
+<%= f.radio_button :obrigatorio, "Sim"%>Sim
+<%= f.radio_button :obrigatorio, "Não"%>Não
+  </p>
+  <p>
+    <%= f.label  :duracao ,"Duração"%>
+<%= f.radio_button :duracao, "Longa"%>Longa
+<%= f.radio_button :duracao, "Curta"%>Curta
+  </p>
+  <p>
+   <%= f.label  :local_do_estagio ,"Local do estágio"%>
+<%= f.text_field :local_do_estagio, :size => "25"%>
+  </p>
+  <p>
+    <%= f.label :departamento , "Departamento do Estágio"%><br />
+    <%= f.text_field :departamento , :size => "20"%>
+    <%= f.label :setor , "Setor do Estágio"%><br />
+    <%= f.text_field :setor , :size => "20"%>
+  </p>
+  <p>
+<%= f.label  :agente_de_integracao ,"Agente de integração"%>
+<%= f.radio_button :agente_de_integracao, "Sim"%>Sim
+<%= f.radio_button :agente_de_integracao, "Não"%>Não&nbsp;&nbsp;
+<%= f.label  :qual_agente_de_integracao ,"Qual agente de integração"%>
+<%= f.text_field :qual_agente_de_integracao, :size => "20"%>
+  </p>
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @estagio %> |
+<%= link_to 'Voltar', estagios_path %>
+
